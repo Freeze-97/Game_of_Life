@@ -1,5 +1,4 @@
 /*
- * lab4-task2.c  (implementation of lab4 task 1-3)
  *
  *  Created on: 2024-12-09
  *      Author: Tommy
@@ -32,12 +31,7 @@ int num_neighbors(int x, int y);
 
 int main(int argc, char ** argv)
 {
-	int n;
-
-	/* TODO:
-        read in a file name (for live cells)
-        initialize the world, from this file if it is readable
-           otherwise, use hard-coded pattern by calling initialize_world( )   */
+    int n;
     if(argc > 1) {
         printf("Initializing world from file.\n");
 
@@ -58,12 +52,10 @@ int main(int argc, char ** argv)
 
 	/* evolutions*/
 	for (n = 0; n < NUM_GENERATIONS; n++) {
-		next_generation();   /* you implemented in lab4 task 1-2*/
+		next_generation();
 
-		/* TODO: output the world state to console ==> you complete it in lab4 task 1-2 */
 		output_world();
 
-		/* TODO: let the program pause, until you press ENTER key to continue ==> you did it in lab4 task 1-2*/
 		printf("Press ENTER to continue...\n");
 		getchar();
 	}
@@ -75,13 +67,7 @@ int main(int argc, char ** argv)
 	return 0;
 }
 
-/* the following functions are implemented in lab4 task 1-2, and you can copy from that file*/
 void next_generation(void) {
-	/* TODO: for every cell, set the state in the next
-	   generation according to the Game of Life rules
-
-	   Hint: use get_next_state(x,y) */
-
     for (int x = 0; x < get_world_width(); x++) {
         for (int y = 0; y < get_world_height(); y++) {
             set_cell_state(x, y, get_next_state(x,y));
@@ -92,12 +78,6 @@ void next_generation(void) {
 }
 
 int get_next_state(int x, int y) {
-	/* TODO: for the specified cell, compute the state in
-	   the next generation using the rules
-
-	   Use num_neighbors(x,y) to compute the number of live
-	   neighbors */
-
     int neighbors_alive = num_neighbors(x, y);
     int cell_state = get_cell_state(x, y);
 
@@ -117,11 +97,6 @@ int get_next_state(int x, int y) {
 }
 
 int num_neighbors(int x, int y) {
-	/* TODO: for the specified cell, return the number of
-	   neighbors that are ALIVE
-
-	   Use get_cell_state(x,y) */
-
     int num_alive = 0;
     for(int i = x - 1; i <= x + 1; i++) {
         for(int j = y - 1; j <= y + 1; j++) {
