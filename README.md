@@ -15,4 +15,6 @@ Conway’s set of rules are summarized as follows:
 reproduction.
 
 In this version the two-dimensional world is finite. The neighbors of a cell on the edge
-(borders) that are beyond the edge are assumed dead.
+(borders) that are beyond the edge are assumed dead.  
+
+Textfiles can be used as input for the first generation state.
