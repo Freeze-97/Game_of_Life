@@ -5,9 +5,6 @@
  *      Author: Daniel Weller
  */
 
-/* Warning: Do NOT modify the contents of this file.
-   All your code should be in lab1a.c. */
-
 #ifndef LIFEGAME_H_
 #define LIFEGAME_H_
 
