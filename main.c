@@ -9,8 +9,6 @@
 /* include helper functions for game */
 #include "lifegame.h"
 
-/* add whatever other includes here */
-
 /* number of generations to evolve the world */
 #define NUM_GENERATIONS 50
 
