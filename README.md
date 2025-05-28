@@ -1,20 +1,62 @@
-# Game of Life
-The Game of Life was invented by John Conway in 1970. The game consists of a two-dimensional world
-extending infinitely in all directions, divided into “cells.” Each cell is either “dead” or
-“alive” at a given “generation.” The game consists of a set of rules that describe how the
-cells evolve from generation to generation.
+# 🌱 Conway's Game of Life
+This project is an implementation of Conway's Game of Life, a cellular automaton devised by British mathematician John Conway in 1970. The simulation is written in C and supports initializing the first generation from a text file.
 
-These rules calculate the state of a cell in the next generation as a function of the states
-of its neighboring cells in the current generation. In a two-dimensional world, a cell’s
-neighbors are those 8 cells vertically, horizontally, or diagonally adjacent to that cell.
-Conway’s set of rules are summarized as follows:
-1. Any live cell with fewer than two live neighbors dies, as if caused by underpopulation.
-2. Any live cell with two or three live neighbors lives on to the next generation.
-3. Any live cell with more than three live neighbors dies, as if by overcrowding.
-4. Any dead cell with exactly three live neighbors becomes a live cell, as if by
-reproduction.
+## 🎮 Game Description
+Conway's Game of Life is a zero-player game where the evolution of a grid of cells is determined by its initial state, with no further input. The world is represented as a finite 2D grid, and each cell in the grid is either alive (1) or dead (0).
 
-In this version the two-dimensional world is finite. The neighbors of a cell on the edge
-(borders) that are beyond the edge are assumed dead.  
+## ✅ Rules
+Each cell’s state in the next generation depends on its 8 neighbors:
 
-Textfiles can be used as input for the first generation state.
+Underpopulation: A live cell with fewer than two live neighbors dies
+
+Survival: A live cell with two or three live neighbors lives on
+
+Overpopulation: A live cell with more than three live neighbors dies
+
+Reproduction: A dead cell with exactly three live neighbors becomes a live cell
+
+Note: Cells outside the grid are considered dead.
+
+## 📂 File Structure
+```bash
+├── lifegame.c       # Core game logic (e.g., rules, next generation)
+├── lifegame.h       # Header file for lifegame functions and constants
+├── main.c           # Entry point and simulation loop
+├── pattern.txt      # Example input file defining the initial state
+└── README.md        # Project documentation
+```
+
+## 📄 Input Format
+The file pattern.txt contains row-column coordinate pairs (0-based index) of initially alive cells. Each line represents one live cell:
+```row col```
+
+## 🔹 Example (pattern.txt):
+```bash
+1 2
+1 3
+1 4
+2 1
+2 2
+2 3
+```
+This means:
+
+The cell at row 1, column 2 is alive
+
+The cell at row 1, column 3 is alive
+
+etc.
+
+All other cells in the grid are assumed dead initially.
+
+## 🧪 How to Compile and Run
+1. Compile the program:
+```bash
+gcc -o game main.c lifegame.c
+```
+2. Run the game (e.g., for 10 generations):
+```bash
+./game pattern.txt 10
+```
+
+
